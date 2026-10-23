@@ -463,12 +463,12 @@
         <div class="demo" id="demo">
           <figure>
             <div class="dots"><i></i><i></i><i></i></div>
-            <video id="demo1" muted playsinline preload="metadata" poster="process-model.jpg"><source src="process-model.mp4" type="video/mp4"></video>
-            <figcaption><b>1 · Model.</b> Type "infusion pump". Four disciplines and 47 specifications, in seconds.</figcaption>
+            <video id="demo1" muted playsinline preload="auto" poster="process-model.jpg"><source src="process-model.mp4" type="video/mp4"></video>
+            <figcaption><b>1 · Model.</b> Type "infusion pump". Four disciplines, 47 specifications, seconds.</figcaption>
           </figure>
           <figure>
             <div class="dots"><i></i><i></i><i></i></div>
-            <video id="demo2" muted playsinline preload="metadata" poster="process-publish.jpg"><source src="process-publish.mp4" type="video/mp4"></video>
+            <video id="demo2" muted playsinline preload="auto" poster="process-publish.jpg"><source src="process-publish.mp4" type="video/mp4"></video>
             <figcaption><b>2 · Publish.</b> One click, and the whole model is live in Codebeamer.</figcaption>
           </figure>
         </div>
@@ -555,12 +555,12 @@
   var started=false;
   function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
   function run(){
-    v2.currentTime=0;v2.load();
+    v2.pause();v2.currentTime=0;
     v1.currentTime=0;
     v1.play().catch(function(){});
   }
-  v1.addEventListener('ended',function(){ wait(600).then(function(){ v2.play().catch(function(){}); }); });
-  v2.addEventListener('ended',function(){ wait(2000).then(run); });
+  v1.addEventListener('ended',function(){ v2.play().catch(function(){}); });
+  v2.addEventListener('ended',function(){ wait(1500).then(run); });
   if('IntersectionObserver' in window){
     new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting&&!started){started=true;run();} }); },{threshold:0.35}).observe(v1);
   } else { run(); }
