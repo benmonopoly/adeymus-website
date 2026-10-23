@@ -227,12 +227,12 @@
 
   .val{color:var(--muted);font-size:15px;margin-top:18px}
   .val b{color:var(--text)}
-  .pilots{scroll-margin-top:96px;margin-top:28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-  .pilots .k{font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
-  .pilots .row{display:flex;gap:12px;flex-wrap:wrap}
-  .pc{display:flex;flex-direction:column;padding:10px 18px;border:1px solid var(--orange);border-radius:10px}
-  .pc b{font-size:18px}
-  .pc span{color:var(--dim);font-size:13px}
+  .partners{scroll-margin-top:72px}
+  .pilots{display:grid;gap:18px;margin-top:40px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .pc{display:flex;flex-direction:column;gap:10px;padding:clamp(28px,3vw,44px) clamp(28px,3vw,40px);background:var(--card);border:1px solid var(--orange);border-radius:16px}
+  .pc b{font-size:clamp(30px,3.2vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .pc span{color:var(--muted);font-size:clamp(15px,1.3vw,18px)}
+  .principles .after{margin-top:clamp(72px,10vh,120px)}
 
   .demo{display:grid;gap:14px;margin-top:26px;grid-template-columns:1fr 1fr}
   @media(max-width:760px){.demo{grid-template-columns:1fr}}
@@ -246,15 +246,15 @@
   /* principles */
   .principles .card{background:var(--card-deep);border-style:dashed}
   .principles h3{font-size:19px}
-  .principles p{color:var(--muted);font-size:15px}
+  .principles .card p{color:var(--muted);font-size:15px}
 
   /* team */
   .team .card{display:flex;flex-direction:column}
   .team img{width:112px;height:112px;border-radius:50%;object-fit:cover;border:2px solid var(--line);margin-bottom:18px}
   .team h3{font-size:24px}
-  .team .role{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-top:4px}
-  .team .was{font-size:16px;font-weight:700;margin-top:12px}
-  .team p{color:var(--muted);font-size:15px;margin-top:8px}
+  .team .card .role{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-top:4px}
+  .team .card .was{font-size:16px;font-weight:700;margin-top:12px}
+  .team .card p{color:var(--muted);font-size:15px;margin-top:8px}
   .team .li{color:var(--dim);font-size:14px;margin-top:auto;padding-top:14px}
   .team .ph{width:112px;height:112px;border-radius:50%;border:2px dashed var(--faint);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
   .team .ph svg{width:56px;height:56px;opacity:.9}
@@ -280,9 +280,9 @@
       <span class="wordmark">adeymus</span>
     </a>
     <div class="links">
-      <a href="#solution">How it works</a>
+      <a href="#solution">How It Works</a>
       <a href="#product">Product</a>
-      <a href="#partners">Design partners</a>
+      <a href="#partners">Design Partners</a>
       <a href="#team">Team</a>
       <a class="cta" href="#contact">Contact</a>
     </div>
@@ -371,7 +371,7 @@
     </div>
     <div class="whynow">
       <b>What changed</b>
-      <p>AI can now read years of change history and draft the missing reason, with its evidence, for an engineer to approve.</p>
+      <p>AI can now read years of context and draft the missing reason, with its evidence, for an engineer to approve.</p>
     </div>
   </div>
 </section>
@@ -475,19 +475,19 @@
 
     </div>
 
-    <div class="pilots" id="partners">
-      <p class="k">Design partners</p>
-      <div class="row">
-        <div class="pc"><b>Innoviz</b><span>LiDAR · Automotive &amp; Defense</span></div>
-        <div class="pc"><b>ARTIDIS</b><span>Cancer diagnostics · MedTech</span></div>
-      </div>
-    </div>
   </div>
 </section>
 
-<section id="principles" class="principles">
+<section id="partners" class="partners principles">
   <div class="wrap">
-    <p class="eyebrow">Built for regulated teams</p>
+    <p class="eyebrow">Design Partners</p>
+    <h2>Shaped on live programs, with the teams who face the audit.</h2>
+    <div class="pilots">
+      <div class="pc"><b>Innoviz</b><span>LiDAR · Automotive &amp; Defense</span></div>
+      <div class="pc"><b>ARTIDIS</b><span>Cancer diagnostics · MedTech</span></div>
+    </div>
+
+    <p class="eyebrow after" id="principles">Built for regulated teams</p>
     <h2>Built for the people who sign the audit report.</h2>
     <div class="grid g4">
       <div class="card"><h3>The AI suggests. People decide.</h3><p>Nothing is recorded as a reason until a responsible engineer approves it.</p></div>
