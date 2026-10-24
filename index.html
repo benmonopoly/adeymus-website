@@ -575,7 +575,11 @@
   if(!v1||!v2)return;
   var started=false;
   [v1,v2].forEach(function(v){ v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); });
-  function fallback(v){ return function(){ v.setAttribute('controls',''); }; }
+  var blocked=false;
+  function fallback(v){ return function(){ blocked=true; v.setAttribute('controls',''); }; }
+  function unlock(){ if(!blocked||!started) return; blocked=false; v1.removeAttribute('controls'); v2.removeAttribute('controls'); run(); }
+  ['touchend','click','keydown'].forEach(function(t){ document.addEventListener(t,unlock,{passive:true}); });
+  v1.addEventListener('play',function(){ blocked=false; v1.removeAttribute('controls'); });
   function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
   function run(){
     v2.pause();v2.currentTime=0;
